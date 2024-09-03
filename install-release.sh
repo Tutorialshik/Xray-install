@@ -201,6 +201,10 @@ identify_the_operating_system_and_architecture() {
     PACKAGE_MANAGEMENT_INSTALL='dnf -y install'
     PACKAGE_MANAGEMENT_REMOVE='dnf remove'
     package_provide_tput='ncurses'
+  elif [[ "$(type -P rpm-ostree)" ]]; then
+    PACKAGE_MANAGEMENT_INSTALL='rpm-ostree -y install'
+    PACKAGE_MANAGEMENT_REMOVE='rpm-ostree remove'
+    package_provide_tput='ncurses'
   elif [[ "$(type -P yum)" ]]; then
     PACKAGE_MANAGEMENT_INSTALL='yum -y install'
     PACKAGE_MANAGEMENT_REMOVE='yum remove'
